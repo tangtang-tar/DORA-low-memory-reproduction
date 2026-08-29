@@ -1,0 +1,18 @@
+# Large or reproducible local assets
+/cache/
+/datasets/
+/envs/
+/models/
+/results/
+/tmp/
+
+# Runtime logs are intentionally not versioned.
+/logs/
+
+# The official upstream source has its own Git repository.
+/src/
+
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+

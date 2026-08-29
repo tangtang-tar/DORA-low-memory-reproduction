@@ -1,0 +1,8 @@
+# Conda 仅在 DORA 目录中保存环境和下载的软件包。
+envs_dirs:
+  - /media/tangtang/Data/DORA/envs
+pkgs_dirs:
+  - /media/tangtang/Data/DORA/cache/conda_pkgs
+
+# 避免询问是否自动激活 base；本项目只激活显式路径环境。
+auto_activate_base: false

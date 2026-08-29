@@ -1,0 +1,18 @@
+# C2 真正逐步、多轮、低显存 DORA。
+model_path: /media/tangtang/Data/DORA/models/Qwen2.5-1.5B-Instruct
+prm_path: /media/tangtang/Data/DORA/models/Qwen2.5-Math-PRM-7B
+embedding_path: /media/tangtang/Data/DORA/models/bge-m3
+dataset_name: /media/tangtang/Data/DORA/datasets/MATH-500
+output_dir: /media/tangtang/Data/DORA/results/phase_c/c2
+
+# 选择需要多步推理的无穷级数题。
+problem_index: 1
+budget: 4
+allocation_rounds: 3
+step_max_tokens: 96
+final_max_tokens: 768
+temperature: 0.8
+top_p: 0.95
+quality_temperature: 0.1
+balance_alpha: 0.1
+seed: 211

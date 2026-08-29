@@ -1,0 +1,40 @@
+# 阶段 B 的单题本地配置。
+# 这是新增配置文件，不修改 src/recipes 下的官方默认配置。
+
+approach: dora
+
+# 所有资源均使用 DORA 内的绝对路径，避免运行位置变化导致找不到文件。
+model_path: /media/tangtang/Data/DORA/models/Qwen2.5-1.5B-Instruct
+prm_path: /media/tangtang/Data/DORA/models/Qwen2.5-Math-PRM-7B
+embedding_path: /media/tangtang/Data/DORA/models/bge-m3
+dataset_name: /media/tangtang/Data/DORA/datasets/MATH-500
+output_dir: /media/tangtang/Data/DORA/results/phase_b
+
+# B1 只处理第一道题。
+num_samples: 1
+dataset_start: 0
+dataset_end: 1
+search_batch_size: 1
+
+# 小规模搜索：保留 4 条 rollout，每个候选扩展 2 条。
+# 注意：官方 dora.py 实际只使用 n；beam_width 将由 B3 的拆分运行器使用。
+n: 4
+beam_width: 2
+num_iterations: 3
+
+# 缩短单步与整条回答，优先验证流程而不是追求最终准确率。
+max_tokens: 256
+max_tokens_per_step: 96
+lookahead: 0
+
+temperature: 0.8
+top_p: 0.95
+balance_alpha: 0.01
+seed: 0
+prm_batch_size: 1
+gpu_memory_utilization: 0.75
+
+# 阶段 B 结果只保存在本地。
+push_to_hub: false
+apply_voting: true
+custom_chat_template: null
