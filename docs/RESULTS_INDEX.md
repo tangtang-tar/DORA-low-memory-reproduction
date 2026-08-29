@@ -8,6 +8,7 @@
 |---|---|
 | 资源、答案抽取、量化一致率和分配 | `results_summary/metrics.json` |
 | 5题方法对照 | `results_summary/small_scale_methods.csv` |
+| 小预算整数分配CPU模拟 | `results_summary/phase_d1/` |
 
 | 结论 | 原始文件 |
 |---|---|
@@ -36,4 +37,3 @@ python $DORA_ROOT/scripts_local/verify_phase_c2.py
 ```
 
 阶段 B 验收检查资源测量、单题完整链、峰值显存、5题/20 rollout 和6种汇总方法。阶段 C2 验收检查三轮预算守恒、非均匀分配、父路径复制和真实续写。
-

@@ -1,0 +1,133 @@
+{
+  "simulation_scope": {
+    "candidate_counts": [
+      4,
+      8,
+      16
+    ],
+    "budgets": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "trials": 1000,
+    "rounds_per_trial": 10,
+    "total_weight_scenarios": 120000
+  },
+  "minimum_budget_aggregate": {
+    "budget": 4,
+    "largest_remainder_erasure_rate": 0.6149666666666667,
+    "cumulative_deficit_erasure_rate": 0.2690666666666667,
+    "relative_erasure_reduction": 0.5624695105425768,
+    "largest_remainder_cumulative_tv_error": 0.08053193679882706,
+    "cumulative_deficit_cumulative_tv_error": 0.03006155544373719,
+    "relative_cumulative_error_reduction": 0.626712623107122,
+    "largest_remainder_instantaneous_tv_error": 0.24109496142418413,
+    "cumulative_deficit_instantaneous_tv_error": 0.3106261276623857,
+    "relative_instantaneous_error_increase": 0.28839742575900607
+  },
+  "budget_trend_checks": [
+    {
+      "candidate_count": 4,
+      "method": "largest_remainder",
+      "values_by_increasing_budget": [
+        0.7833,
+        0.5876,
+        0.37579999999999997,
+        0.21800000000000003
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 4,
+      "method": "systematic_stochastic",
+      "values_by_increasing_budget": [
+        0.7489000000000001,
+        0.5605,
+        0.35619999999999996,
+        0.2054
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 4,
+      "method": "cumulative_deficit",
+      "values_by_increasing_budget": [
+        0.4542,
+        0.32589999999999997,
+        0.216,
+        0.1225
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 8,
+      "method": "largest_remainder",
+      "values_by_increasing_budget": [
+        0.6178999999999999,
+        0.3515,
+        0.12660000000000002,
+        0.0246
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 8,
+      "method": "systematic_stochastic",
+      "values_by_increasing_budget": [
+        0.48479999999999995,
+        0.245,
+        0.08430000000000001,
+        0.0169
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 8,
+      "method": "cumulative_deficit",
+      "values_by_increasing_budget": [
+        0.2252,
+        0.1129,
+        0.0404,
+        0.008400000000000001
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 16,
+      "method": "largest_remainder",
+      "values_by_increasing_budget": [
+        0.44369999999999993,
+        0.2552,
+        0.0621,
+        0.0028000000000000004
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 16,
+      "method": "systematic_stochastic",
+      "values_by_increasing_budget": [
+        0.29510000000000003,
+        0.10070000000000001,
+        0.014600000000000002,
+        0.0012
+      ],
+      "strictly_decreasing": true
+    },
+    {
+      "candidate_count": 16,
+      "method": "cumulative_deficit",
+      "values_by_increasing_budget": [
+        0.12780000000000002,
+        0.0437,
+        0.009,
+        0.0005
+      ],
+      "strictly_decreasing": true
+    }
+  ],
+  "all_erasure_curves_strictly_decrease_with_budget": true,
+  "interpretation_boundary": "The simulation establishes a systematic discretization effect under the declared synthetic score/similarity generator. It does not by itself establish an accuracy gain on MATH-500 or universal behavior for every PRM and embedding distribution."
+}

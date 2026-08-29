@@ -43,6 +43,7 @@ envs/dora
 - 使用 4-bit NF4 将 7B PRM 峰值显存降至 4.43 GiB。
 - 实现三轮“生成一步 → PRM 打分 → BGE 多样性 → 资源重分配”。
 - 在 40 条冻结候选上比较 4-bit PRM 与混合 BF16 PRM。
+- 完成12万轮CPU模拟，量化小预算整数化造成的多样性信号损失。
 - 修复不可靠的最终答案抽取，区分推理错误、截断和解析失败。
 - 建立统一的命令、环境、stdout/stderr 和退出状态记录。
 
@@ -88,6 +89,7 @@ envs/dora
 - [阶段 A 环境报告](notes/PHASE_A.md)
 - [阶段 B 最终报告](notes/PHASE_B_FINAL_REPORT.md)
 - [阶段 C 验收报告](notes/PHASE_C_FINAL_REPORT.md)
+- [阶段 D1 CPU 模拟报告](notes/PHASE_D1_CPU_SIMULATION_REPORT.md)
 
 ## 复现与验收
 
@@ -112,6 +114,15 @@ $DORA_ROOT/scripts_local/run_logged.sh phase_c2 \
 ```
 
 每次运行在 `logs/<时间>_<名称>/` 保存 `output.log`、`command.txt`、`environment.txt` 和 `status.txt`。模型、数据、环境、结果与日志不进入本地实验 Git 仓库。
+
+运行阶段 D1 CPU 模拟：
+
+```bash
+python $DORA_ROOT/scripts_local/phase_d1_cpu_simulation.py
+python $DORA_ROOT/scripts_local/phase_d1_analyze.py
+python $DORA_ROOT/scripts_local/phase_d1_plot.py
+python $DORA_ROOT/scripts_local/verify_phase_d1.py
+```
 
 ## 仓库边界
 

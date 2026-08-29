@@ -1,0 +1,10 @@
+# Phase D1: CPU-only simulation of low-budget integer allocation.
+seed: 20260829
+trials: 1000
+rounds: 10
+candidate_counts: [4, 8, 16]
+budgets: [4, 8, 16, 32]
+quality_temperature: 0.1
+similarity_temperature: 0.1
+continuous_signal_threshold: 1.0e-8
+output_dir: results/phase_d1_cpu_simulation
