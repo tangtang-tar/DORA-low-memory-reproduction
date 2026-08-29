@@ -1,0 +1,33 @@
+{
+  "problem_indices": [
+    1,
+    8,
+    15,
+    23,
+    34,
+    51,
+    67,
+    82,
+    99,
+    118,
+    143,
+    169,
+    197,
+    228,
+    261,
+    297,
+    336,
+    381,
+    429,
+    477
+  ],
+  "budget": 4,
+  "allocation_rounds": 3,
+  "direction_metric": "complete-link greedy clusters at cosine >= 0.95; effective count = 1/(p^T cosine p)",
+  "accuracy_metrics": [
+    "pass_at_4",
+    "normalized-answer majority",
+    "candidate accuracy"
+  ],
+  "cumulative_limitation": "Fractional debt is aligned by deterministic beam slot across rounds."
+}

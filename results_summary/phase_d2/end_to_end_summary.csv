@@ -1,0 +1,4 @@
+method,problems,pass_at_4_correct,pass_at_4_accuracy,majority_correct,majority_accuracy,candidate_accuracy,truncation_rate,mean_candidate_coverage,mean_direction_coverage,mean_effective_directions,official_raw_budget_violation_rounds
+official_round,20,15,0.75,13,0.65,0.525,0.2125,3.2333333333333334,1.7166666666666668,1.049619390858171,13
+largest_remainder,20,16,0.8,13,0.65,0.5125,0.2375,3.366666666666667,1.9166666666666667,1.0521066467187699,0
+cumulative_deficit,20,16,0.8,13,0.65,0.525,0.225,3.383333333333333,1.9166666666666667,1.0521578341274944,0

@@ -14,9 +14,12 @@ PATH_KEYS = {
     "candidate_path",
     "dataset_name",
     "embedding_path",
+    "end_to_end_output_dir",
     "model_path",
     "output_dir",
+    "public_output_dir",
     "prm_path",
+    "replay_output_dir",
 }
 
 

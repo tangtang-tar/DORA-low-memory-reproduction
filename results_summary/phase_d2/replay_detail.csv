@@ -1,0 +1,13 @@
+trace,round,method,candidate_count,budget,raw_sum,budget_deviation,allocation,differs_from_largest_remainder,l1_from_largest_remainder,candidate_coverage,direction_coverage,continuous_weights
+results/phase_c/c2/round_0_allocation.jsonl,0,official_round_raw,4,4,3,-1,"[1, 1, 0, 1]",True,1,3,1,"[0.23611152256440973, 0.35569437220877576, 0.05619869667965689, 0.35199540854715755]"
+results/phase_c/c2/round_0_allocation.jsonl,0,official_round,4,4,4,0,"[2, 1, 0, 1]",True,2,3,1,"[0.23611152256440973, 0.35569437220877576, 0.05619869667965689, 0.35199540854715755]"
+results/phase_c/c2/round_0_allocation.jsonl,0,largest_remainder,4,4,4,0,"[1, 2, 0, 1]",False,0,3,1,"[0.23611152256440973, 0.35569437220877576, 0.05619869667965689, 0.35199540854715755]"
+results/phase_c/c2/round_0_allocation.jsonl,0,cumulative_deficit,4,4,4,0,"[1, 2, 0, 1]",False,0,3,1,"[0.23611152256440973, 0.35569437220877576, 0.05619869667965689, 0.35199540854715755]"
+results/phase_c/c2/round_1_allocation.jsonl,1,official_round_raw,4,4,4,0,"[1, 1, 1, 1]",False,0,4,1,"[0.3013186407187819, 0.20802684460658386, 0.23526668368738077, 0.25538783098725343]"
+results/phase_c/c2/round_1_allocation.jsonl,1,official_round,4,4,4,0,"[1, 1, 1, 1]",False,0,4,1,"[0.3013186407187819, 0.20802684460658386, 0.23526668368738077, 0.25538783098725343]"
+results/phase_c/c2/round_1_allocation.jsonl,1,largest_remainder,4,4,4,0,"[1, 1, 1, 1]",False,0,4,1,"[0.3013186407187819, 0.20802684460658386, 0.23526668368738077, 0.25538783098725343]"
+results/phase_c/c2/round_1_allocation.jsonl,1,cumulative_deficit,4,4,4,0,"[1, 0, 1, 2]",True,2,3,1,"[0.3013186407187819, 0.20802684460658386, 0.23526668368738077, 0.25538783098725343]"
+results/phase_c/c2/round_2_allocation.jsonl,2,official_round_raw,4,4,3,-1,"[1, 0, 1, 1]",True,1,3,1,"[0.353885614736885, 2.099925204154657e-05, 0.3206454720635163, 0.3254479139475572]"
+results/phase_c/c2/round_2_allocation.jsonl,2,official_round,4,4,4,0,"[2, 0, 1, 1]",False,0,3,1,"[0.353885614736885, 2.099925204154657e-05, 0.3206454720635163, 0.3254479139475572]"
+results/phase_c/c2/round_2_allocation.jsonl,2,largest_remainder,4,4,4,0,"[2, 0, 1, 1]",False,0,3,1,"[0.353885614736885, 2.099925204154657e-05, 0.3206454720635163, 0.3254479139475572]"
+results/phase_c/c2/round_2_allocation.jsonl,2,cumulative_deficit,4,4,4,0,"[2, 0, 1, 1]",False,0,3,1,"[0.353885614736885, 2.099925204154657e-05, 0.3206454720635163, 0.3254479139475572]"

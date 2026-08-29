@@ -1,0 +1,13 @@
+{
+  "source": "real PRM scores and real BGE cosine similarities from Phase C2",
+  "trace_rounds": 3,
+  "budget": 4,
+  "official_raw_budget_violation_rounds": 2,
+  "method_difference_rows": 4,
+  "comparison_rows": 9,
+  "limitations": [
+    "Only one problem and three real rounds existed before D2.",
+    "Replay is counterfactual only at each allocation decision; downstream candidates remain from the historical run.",
+    "Cumulative replay aligns debt by beam slot because candidate identities change; causal effects require method-specific end-to-end runs."
+  ]
+}

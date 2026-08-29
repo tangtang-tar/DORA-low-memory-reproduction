@@ -1,0 +1,26 @@
+# D2: replay real DORA signals, then compare allocation methods end to end.
+replay_inputs:
+  - results/phase_c/c2/round_0_allocation.jsonl
+  - results/phase_c/c2/round_1_allocation.jsonl
+  - results/phase_c/c2/round_2_allocation.jsonl
+replay_output_dir: results/phase_d2/replay
+public_output_dir: results_summary/phase_d2
+budget: 4
+direction_similarity_threshold: 0.95
+
+# End-to-end experiment (20 fixed MATH-500 problems).
+problem_indices: [1, 8, 15, 23, 34, 51, 67, 82, 99, 118, 143, 169, 197, 228, 261, 297, 336, 381, 429, 477]
+methods: [official_round, largest_remainder, cumulative_deficit]
+model_path: models/Qwen2.5-1.5B-Instruct
+prm_path: models/Qwen2.5-Math-PRM-7B
+embedding_path: models/bge-m3
+dataset_name: datasets/MATH-500
+end_to_end_output_dir: results/phase_d2/end_to_end
+allocation_rounds: 3
+step_max_tokens: 96
+final_max_tokens: 768
+temperature: 0.8
+top_p: 0.95
+quality_temperature: 0.1
+balance_alpha: 0.1
+seed: 20260829

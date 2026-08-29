@@ -1,0 +1,16 @@
+left,right,metric,right_minus_left,paired_bootstrap_ci_low,paired_bootstrap_ci_high,left_only_successes,right_only_successes,mcnemar_exact_p
+official_round,largest_remainder,pass_at_4,0.05,0.0,0.15,0,1,1.0
+official_round,largest_remainder,majority_correct,0.0,0.0,0.0,0,0,1.0
+official_round,largest_remainder,mean_candidate_coverage,0.13333333333333333,0.03333333333333335,0.2333333333333333,,,
+official_round,largest_remainder,mean_direction_coverage,0.2,0.06666666666666668,0.35,,,
+official_round,largest_remainder,mean_effective_directions,0.0024872558605989912,-0.0010129734342386124,0.006043165991833536,,,
+official_round,cumulative_deficit,pass_at_4,0.05,0.0,0.15,0,1,1.0
+official_round,cumulative_deficit,majority_correct,0.0,0.0,0.0,0,0,1.0
+official_round,cumulative_deficit,mean_candidate_coverage,0.14999999999999997,0.05,0.26666666666666666,,,
+official_round,cumulative_deficit,mean_direction_coverage,0.2,0.06666666666666668,0.35,,,
+official_round,cumulative_deficit,mean_effective_directions,0.0025384432693232872,-0.0009951899392141668,0.006189186297264432,,,
+largest_remainder,cumulative_deficit,pass_at_4,0.0,0.0,0.0,0,0,1.0
+largest_remainder,cumulative_deficit,majority_correct,0.0,0.0,0.0,0,0,1.0
+largest_remainder,cumulative_deficit,mean_candidate_coverage,0.016666666666666653,-0.050000000000000044,0.08333333333333337,,,
+largest_remainder,cumulative_deficit,mean_direction_coverage,0.0,0.0,0.0,,,
+largest_remainder,cumulative_deficit,mean_effective_directions,5.118740872429583e-05,-0.0005884540411166381,0.0007593053847618214,,,

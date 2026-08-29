@@ -9,6 +9,7 @@
 | 资源、答案抽取、量化一致率和分配 | `results_summary/metrics.json` |
 | 5题方法对照 | `results_summary/small_scale_methods.csv` |
 | 小预算整数分配CPU模拟 | `results_summary/phase_d1/` |
+| D2真实重放、20题汇总和配对统计 | `results_summary/phase_d2/` |
 
 | 结论 | 原始文件 |
 |---|---|
@@ -27,6 +28,10 @@
 | C3 混合 BF16 分数 | `results/phase_c/c3/scores_mixed_bf16.jsonl` |
 | C3 相关性和一致率 | `results/phase_c/c3/comparison.json` |
 | C3 逐题分配比较 | `results/phase_c/c3/per_problem.jsonl` |
+| D2真实轨迹重放 | `results/phase_d2/replay/` |
+| D2三种方法完整轨迹 | `results/phase_d2/end_to_end/<method>/` |
+| D2逐题与方法汇总 | `results/phase_d2/end_to_end/end_to_end_*.csv` |
+| D2配对置信区间与McNemar检验 | `results/phase_d2/end_to_end/paired_comparisons.csv` |
 
 ## 自动验收
 
@@ -34,6 +39,9 @@
 source $DORA_ROOT/activate_dora.sh
 python $DORA_ROOT/scripts_local/verify_phase_b.py
 python $DORA_ROOT/scripts_local/verify_phase_c2.py
+python $DORA_ROOT/scripts_local/verify_phase_d1.py
+python $DORA_ROOT/scripts_local/verify_phase_d2_replay.py
+python $DORA_ROOT/scripts_local/verify_phase_d2.py
 ```
 
-阶段 B 验收检查资源测量、单题完整链、峰值显存、5题/20 rollout 和6种汇总方法。阶段 C2 验收检查三轮预算守恒、非均匀分配、父路径复制和真实续写。
+阶段 B 验收检查资源测量、单题完整链、峰值显存、5题/20 rollout 和6种汇总方法。阶段 C2 验收检查三轮预算守恒、非均匀分配、父路径复制和真实续写。阶段 D1 验收 CPU 模拟趋势与配对区间；阶段 D2 验收三种方法各20题的完整轨迹、逐题预算守恒和公开汇总一致性。

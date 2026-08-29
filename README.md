@@ -44,6 +44,7 @@ envs/dora
 - 实现三轮“生成一步 → PRM 打分 → BGE 多样性 → 资源重分配”。
 - 在 40 条冻结候选上比较 4-bit PRM 与混合 BF16 PRM。
 - 完成12万轮CPU模拟，量化小预算整数化造成的多样性信号损失。
+- 完成真实 PRM/BGE 轨迹重放与三种分配方法的 20 题端到端对照。
 - 修复不可靠的最终答案抽取，区分推理错误、截断和解析失败。
 - 建立统一的命令、环境、stdout/stderr 和退出状态记录。
 
@@ -60,6 +61,9 @@ envs/dora
 | PRM Top-1 一致率 | 100% |
 | 整数资源分配一致率 | 100% |
 | 答案抽取样本内一致率 | 40/40 |
+| D2 官方独立取整原始预算违规 | 13/60 |
+| D2 pass@4（官方 / 最大余数 / 累计） | 15/20 / 16/20 / 16/20 |
+| D2 多数答案正确率（三种方法） | 13/20 |
 
 公开的脱敏汇总见 [`results_summary/`](results_summary/)，其中不包含题目文本、模型输出、用户名、主机名或本机路径。
 
@@ -80,6 +84,7 @@ envs/dora
 - 1.5B Policy 的 40 条候选中有 12 条在 token 上限处截断。
 - 当前没有复现论文的 MATH-500、AIME2024、AIME2025 完整结果。
 - 小预算下连续多样性权重可能在整数舍入时消失。
+- D2 的20题实验显示覆盖差异，但没有证明最终正确率提升；最终候选仍有约21%–24%截断。
 
 ## 文档入口
 
@@ -90,6 +95,7 @@ envs/dora
 - [阶段 B 最终报告](notes/PHASE_B_FINAL_REPORT.md)
 - [阶段 C 验收报告](notes/PHASE_C_FINAL_REPORT.md)
 - [阶段 D1 CPU 模拟报告](notes/PHASE_D1_CPU_SIMULATION_REPORT.md)
+- [阶段 D2 真实重放与20题端到端报告](notes/PHASE_D2_REAL_REPLAY_AND_20_PROBLEM_REPORT.md)
 
 ## 复现与验收
 
@@ -122,6 +128,17 @@ python $DORA_ROOT/scripts_local/phase_d1_cpu_simulation.py
 python $DORA_ROOT/scripts_local/phase_d1_analyze.py
 python $DORA_ROOT/scripts_local/phase_d1_plot.py
 python $DORA_ROOT/scripts_local/verify_phase_d1.py
+```
+
+运行阶段 D2（约 50 分钟本地 GPU 时间）：
+
+```bash
+python $DORA_ROOT/scripts_local/phase_d2_replay.py
+python $DORA_ROOT/scripts_local/verify_phase_d2_replay.py
+python $DORA_ROOT/scripts_local/phase_d2_run.py
+python $DORA_ROOT/scripts_local/phase_d2_evaluate.py
+python $DORA_ROOT/scripts_local/phase_d2_analyze.py
+python $DORA_ROOT/scripts_local/verify_phase_d2.py
 ```
 
 ## 仓库边界
