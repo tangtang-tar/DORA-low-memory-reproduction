@@ -2,7 +2,7 @@
 
 本项目复现 NeurIPS 2025 工作 **Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling** 的核心搜索机制，并探索在单张 8 GB 消费级 GPU 上运行 DORA 的工程路线。
 
-> 当前定位：已完成低显存工程复现、真实逐步搜索验证和量化保真检查；尚未完成 MATH-500 全量准确率复现，不能据此声称 DORA 优于基线。
+> **项目状态：阶段性结项，进入维护状态。** 已完成低显存工程复现、真实逐步搜索、量化保真、小预算模拟和20题探索实验；不再继续小样本调参。尚未完成论文规模准确率复现，不能据此声称 DORA 或整数分配改动优于基线。
 
 > **非官方声明：**这是独立的低显存复现项目，不代表原论文作者或官方 DORA 项目。
 
@@ -88,6 +88,7 @@ envs/dora
 
 ## 文档入口
 
+- [项目结项报告](docs/FINAL_REPORT.md)
 - [阶段技术报告](docs/STAGE_REPORT.md)
 - [一页展示摘要](docs/PRESENTATION_BRIEF.md)
 - [结果证据索引](docs/RESULTS_INDEX.md)
