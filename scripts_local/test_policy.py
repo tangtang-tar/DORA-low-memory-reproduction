@@ -2,9 +2,10 @@
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from project_paths import ROOT
 
 
-MODEL_PATH = "/media/tangtang/Data/DORA/models/Qwen2.5-1.5B-Instruct"
+MODEL_PATH = ROOT / "models/Qwen2.5-1.5B-Instruct"
 
 # 这里只加载 1.5B Policy；不要同时加载 7B PRM 和 BGE-M3。
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)

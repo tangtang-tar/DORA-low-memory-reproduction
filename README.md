@@ -4,6 +4,38 @@
 
 > 当前定位：已完成低显存工程复现、真实逐步搜索验证和量化保真检查；尚未完成 MATH-500 全量准确率复现，不能据此声称 DORA 优于基线。
 
+> **非官方声明：**这是独立的低显存复现项目，不代表原论文作者或官方 DORA 项目。
+
+## 上游项目与论文
+
+- 官方代码：[WangXinglin/DORA](https://github.com/WangXinglin/DORA)
+- 论文：[Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling](https://arxiv.org/abs/2506.15707)
+- 本地实验基于官方仓库 commit `150a0f73fa50ddc484f81cc8a23aebc40f546aa0`。
+
+本仓库不复制官方 `src/`。请将官方仓库克隆到本项目的 `src/` 目录，再应用文末所述的兼容性修复。使用本项目或上游实现时，请引用原论文。
+
+## 准备项目
+
+```bash
+git clone https://github.com/tangtang-tar/DORA-low-memory-reproduction.git
+cd DORA-low-memory-reproduction
+git clone https://github.com/WangXinglin/DORA.git src
+git -C src checkout 150a0f73fa50ddc484f81cc8a23aebc40f546aa0
+git -C src apply ../patches/modeling_qwen2_rm.patch
+```
+
+本地资源默认放置为：
+
+```text
+models/Qwen2.5-1.5B-Instruct
+models/Qwen2.5-Math-PRM-7B
+models/bge-m3
+datasets/MATH-500
+envs/dora
+```
+
+这些大体积目录均已被 `.gitignore` 排除。所有配置路径相对于仓库根解析，也可以在运行前设置 `DORA_ROOT` 指向其他项目根目录。
+
 ## 已完成
 
 - 在 RTX 4070 Laptop 8 GB 上分别运行 Qwen2.5-1.5B Policy、Qwen2.5-Math-PRM-7B 和 BGE-M3。
@@ -27,6 +59,8 @@
 | PRM Top-1 一致率 | 100% |
 | 整数资源分配一致率 | 100% |
 | 答案抽取样本内一致率 | 40/40 |
+
+公开的脱敏汇总见 [`results_summary/`](results_summary/)，其中不包含题目文本、模型输出、用户名、主机名或本机路径。
 
 逐步 DORA 的三轮整数分配为：
 
@@ -60,21 +94,21 @@
 激活环境：
 
 ```bash
-source /media/tangtang/Data/DORA/activate_dora.sh
+source $DORA_ROOT/activate_dora.sh
 ```
 
 运行现有验收：
 
 ```bash
-python /media/tangtang/Data/DORA/scripts_local/verify_phase_b.py
-python /media/tangtang/Data/DORA/scripts_local/verify_phase_c2.py
+python $DORA_ROOT/scripts_local/verify_phase_b.py
+python $DORA_ROOT/scripts_local/verify_phase_c2.py
 ```
 
 正式任务应通过日志包装器启动：
 
 ```bash
-/media/tangtang/Data/DORA/scripts_local/run_logged.sh phase_c2 \
-  python /media/tangtang/Data/DORA/scripts_local/phase_c2_run.py
+$DORA_ROOT/scripts_local/run_logged.sh phase_c2 \
+  python $DORA_ROOT/scripts_local/phase_c2_run.py
 ```
 
 每次运行在 `logs/<时间>_<名称>/` 保存 `output.log`、`command.txt`、`environment.txt` 和 `status.txt`。模型、数据、环境、结果与日志不进入本地实验 Git 仓库。
@@ -85,3 +119,13 @@ python /media/tangtang/Data/DORA/scripts_local/verify_phase_c2.py
 - `src/`：官方上游源码仓库，保留独立 Git 历史。
 - 官方源码仅有一个必要修复：缺失的本地 `Qwen2RMConfig` 导入改为当前 Transformers 中等价的 `Qwen2Config`。
 
+## 引用
+
+```bibtex
+@article{wang2025every,
+  title={Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling},
+  author={Wang, Xinglin and Li, Yiwei and Feng, Shaoxiong and Yuan, Peiwen and Zhang, Yueqi and Shi, Jiayi and Tan, Chuyi and Pan, Boyuan and Hu, Yao and Li, Kan},
+  journal={arXiv preprint arXiv:2506.15707},
+  year={2025}
+}
+```

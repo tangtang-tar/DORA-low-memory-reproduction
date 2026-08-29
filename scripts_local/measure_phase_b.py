@@ -9,8 +9,9 @@ from pathlib import Path
 import psutil
 import torch
 
+from project_paths import ROOT
 
-ROOT = Path("/media/tangtang/Data/DORA")
+
 POLICY_PATH = ROOT / "models/Qwen2.5-1.5B-Instruct"
 BGE_PATH = ROOT / "models/bge-m3"
 PRM_PATH = ROOT / "models/Qwen2.5-Math-PRM-7B"

@@ -18,16 +18,16 @@
 先激活 DORA 环境：
 
 ```bash
-source /media/tangtang/Data/DORA/activate_dora.sh
+source $DORA_ROOT/activate_dora.sh
 ```
 
 然后依次运行，不能并行：
 
 ```bash
-python /media/tangtang/Data/DORA/scripts_local/phase_b_policy.py
-python /media/tangtang/Data/DORA/scripts_local/phase_b_prm.py
-python /media/tangtang/Data/DORA/scripts_local/phase_b_embedding.py
-python /media/tangtang/Data/DORA/scripts_local/phase_b_finalize.py
+python $DORA_ROOT/scripts_local/phase_b_policy.py
+python $DORA_ROOT/scripts_local/phase_b_prm.py
+python $DORA_ROOT/scripts_local/phase_b_embedding.py
+python $DORA_ROOT/scripts_local/phase_b_finalize.py
 ```
 
 依次运行的原因是 8 GB 显存不能让三个模型长期同时驻留。每个脚本结束后，操作系统会回收该进程占用的显存；中间 JSONL 让下一阶段接着工作。

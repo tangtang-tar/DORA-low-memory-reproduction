@@ -2,6 +2,13 @@
 
 本文档把阶段报告中的结论映射到原始产物，便于复查。
 
+公开仓库只提交不含题目和生成文本的 `results_summary/`。下表中的 `results/` 是本地完整实验运行后生成的原始证据，已通过 `.gitignore` 排除，避免公开模型输出、运行环境信息和大体积文件。
+
+| 公开汇总 | 文件 |
+|---|---|
+| 资源、答案抽取、量化一致率和分配 | `results_summary/metrics.json` |
+| 5题方法对照 | `results_summary/small_scale_methods.csv` |
+
 | 结论 | 原始文件 |
 |---|---|
 | 本地环境、模型和数据准备完成 | `notes/PHASE_A.md` |
@@ -23,9 +30,9 @@
 ## 自动验收
 
 ```bash
-source /media/tangtang/Data/DORA/activate_dora.sh
-python /media/tangtang/Data/DORA/scripts_local/verify_phase_b.py
-python /media/tangtang/Data/DORA/scripts_local/verify_phase_c2.py
+source $DORA_ROOT/activate_dora.sh
+python $DORA_ROOT/scripts_local/verify_phase_b.py
+python $DORA_ROOT/scripts_local/verify_phase_c2.py
 ```
 
 阶段 B 验收检查资源测量、单题完整链、峰值显存、5题/20 rollout 和6种汇总方法。阶段 C2 验收检查三轮预算守恒、非均匀分配、父路径复制和真实续写。

@@ -1,0 +1,7 @@
+diff --git a/scripts/modeling_qwen2_rm.py b/scripts/modeling_qwen2_rm.py
+index 2caf6c8..2c65eea 100644
+--- a/scripts/modeling_qwen2_rm.py
++++ b/scripts/modeling_qwen2_rm.py
+@@ -48,1 +48,1 @@
+-from configuration_qwen2_rm import Qwen2RMConfig as Qwen2Config
++from transformers.models.qwen2.configuration_qwen2 import Qwen2Config

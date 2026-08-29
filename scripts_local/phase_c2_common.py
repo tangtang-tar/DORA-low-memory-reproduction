@@ -3,12 +3,10 @@
 import json
 from pathlib import Path
 
-import yaml
+from project_paths import ROOT, load_config
 
 
-ROOT = Path("/media/tangtang/Data/DORA")
-with (ROOT / "configs/phase_c2.yaml").open(encoding="utf-8") as file:
-    CONFIG = yaml.safe_load(file)
+CONFIG = load_config("configs/phase_c2.yaml")
 OUTPUT_DIR = Path(CONFIG["output_dir"])
 
 

@@ -2,12 +2,13 @@
 
 import numpy as np
 from FlagEmbedding import BGEM3FlagModel
+from project_paths import ROOT
 
 
-MODEL_PATH = "/media/tangtang/Data/DORA/models/bge-m3"
+MODEL_PATH = ROOT / "models/bge-m3"
 
 # use_fp16=True 会降低显存占用；此测试与 Policy 测试分开运行。
-model = BGEM3FlagModel(MODEL_PATH, use_fp16=True)
+model = BGEM3FlagModel(str(MODEL_PATH), use_fp16=True)
 texts = [
     "The answer is five.",
     "The result equals 5.",

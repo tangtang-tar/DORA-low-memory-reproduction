@@ -4,9 +4,9 @@ import json
 from pathlib import Path
 
 from reliable_answer import answers_equivalent, extract_reliable_answer
+from project_paths import ROOT
 
 
-ROOT = Path("/media/tangtang/Data/DORA")
 RESULT_DIR = ROOT / "results/phase_c/c1"
 
 

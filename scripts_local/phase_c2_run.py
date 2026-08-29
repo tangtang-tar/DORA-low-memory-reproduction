@@ -5,9 +5,10 @@ import sys
 from pathlib import Path
 
 from phase_c2_common import CONFIG
+from project_paths import ROOT
 
 
-SCRIPT_DIR = Path("/media/tangtang/Data/DORA/scripts_local")
+SCRIPT_DIR = ROOT / "scripts_local"
 
 
 def run(script, *arguments):

@@ -1,9 +1,9 @@
 # B6 小规模稳定性实验：同一组 rollout 供所有方法公平比较。
-model_path: /media/tangtang/Data/DORA/models/Qwen2.5-1.5B-Instruct
-prm_path: /media/tangtang/Data/DORA/models/Qwen2.5-Math-PRM-7B
-embedding_path: /media/tangtang/Data/DORA/models/bge-m3
-dataset_name: /media/tangtang/Data/DORA/datasets/MATH-500
-output_dir: /media/tangtang/Data/DORA/results/phase_b/stability
+model_path: models/Qwen2.5-1.5B-Instruct
+prm_path: models/Qwen2.5-Math-PRM-7B
+embedding_path: models/bge-m3
+dataset_name: datasets/MATH-500
+output_dir: results/phase_b/stability
 
 num_samples: 5
 n: 4

@@ -4,15 +4,15 @@
 
 ## 本地操作边界
 
-- 项目、Conda 环境、模型、数据集、缓存、临时文件和结果都位于 `/media/tangtang/Data/DORA`。
-- 只调用系统已有的 `/home/tangtang/miniconda3` 来启动 Conda，没有在那里新建环境或缓存。
+- 项目、Conda 环境、模型、数据集、缓存、临时文件和结果都位于 `$DORA_ROOT`。
+- 只调用系统已有的 `an existing Conda installation` 来启动 Conda，没有在那里新建环境或缓存。
 - 没有安装系统级 CUDA，也没有修改 NVIDIA 驱动。
 - `Qwen2.5-Math-PRM-7B` 约 15 GB，阶段 A 只校验四个权重分片，不在 8 GB 显存上加载。
 
 ## 每次开始工作
 
 ```bash
-source /media/tangtang/Data/DORA/activate_dora.sh
+source $DORA_ROOT/activate_dora.sh
 ```
 
 `source` 的作用是让环境变量留在当前终端。脚本会激活 DORA 内的 Conda 环境、把各种缓存指向 DORA，并进入源码目录。
@@ -20,8 +20,8 @@ source /media/tangtang/Data/DORA/activate_dora.sh
 ## 独立测试
 
 ```bash
-python /media/tangtang/Data/DORA/scripts_local/test_policy.py
-python /media/tangtang/Data/DORA/scripts_local/test_embedding.py
+python $DORA_ROOT/scripts_local/test_policy.py
+python $DORA_ROOT/scripts_local/test_embedding.py
 ```
 
 两条命令要依次运行，不要并行。第一条加载 1.5B Policy 并生成一道数学题；进程退出释放显存后，第二条加载 BGE-M3 并输出语义相似度矩阵。

@@ -7,14 +7,12 @@ from pathlib import Path
 
 import numpy as np
 import torch
-import yaml
 from scipy.stats import pearsonr, spearmanr
 from sentence_transformers import SentenceTransformer
+from project_paths import load_config
 
 
-ROOT = Path("/media/tangtang/Data/DORA")
-with (ROOT / "configs/phase_c3.yaml").open(encoding="utf-8") as file:
-    config = yaml.safe_load(file)
+config = load_config("configs/phase_c3.yaml")
 output_dir = Path(config["output_dir"])
 
 

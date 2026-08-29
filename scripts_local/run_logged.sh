@@ -19,7 +19,8 @@ if [[ ! "$run_name" =~ ^[A-Za-z0-9._-]+$ ]]; then
     exit 2
 fi
 
-dora_root=${DORA_ROOT:-/media/tangtang/Data/DORA}
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+dora_root=${DORA_ROOT:-$(dirname -- "$script_dir")}
 timestamp=$(date '+%Y%m%d_%H%M%S')
 run_dir="$dora_root/logs/${timestamp}_${run_name}"
 mkdir -p "$run_dir"
@@ -72,4 +73,3 @@ finished_at=$(date +%s)
 
 echo "[$(date --iso-8601=seconds)] END $run_name exit_code=$exit_code" | tee -a "$output_file"
 exit "$exit_code"
-

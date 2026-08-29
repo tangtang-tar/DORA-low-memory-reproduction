@@ -1,7 +1,7 @@
-candidate_path: /media/tangtang/Data/DORA/results/phase_c/c1/candidates.jsonl
-output_dir: /media/tangtang/Data/DORA/results/phase_c/c3
-prm_path: /media/tangtang/Data/DORA/models/Qwen2.5-Math-PRM-7B
-embedding_path: /media/tangtang/Data/DORA/models/bge-m3
+candidate_path: results/phase_c/c1/candidates.jsonl
+output_dir: results/phase_c/c3
+prm_path: models/Qwen2.5-Math-PRM-7B
+embedding_path: models/bge-m3
 budget: 4
 quality_temperature: 0.1
 diversity_weight: 0.1

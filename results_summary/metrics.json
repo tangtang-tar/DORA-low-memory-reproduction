@@ -1,0 +1,35 @@
+{
+  "scope": "stage-level engineering validation, not full benchmark reproduction",
+  "hardware": {
+    "gpu_class": "consumer laptop GPU",
+    "gpu_memory_gib": 8
+  },
+  "peak_gpu_memory_gib": {
+    "policy_fp16": 2.8893,
+    "embedding_fp16": 1.0687,
+    "prm_4bit_nf4": 4.4279,
+    "prm_mixed_bf16": 6.0079
+  },
+  "answer_extraction": {
+    "candidate_count": 40,
+    "agreement_with_in_sample_manual_annotations": 1.0,
+    "correct": 23,
+    "reasoning_error": 5,
+    "truncated_without_final_answer": 12
+  },
+  "prm_fidelity": {
+    "candidate_count": 40,
+    "problem_count": 10,
+    "pearson": 0.9958355661,
+    "spearman": 0.9882676710,
+    "within_problem_pairwise_ranking_agreement": 0.95,
+    "strict_top1_consistency": 1.0,
+    "exact_integer_allocation_consistency": 1.0
+  },
+  "stepwise_dora": {
+    "budget": 4,
+    "allocation_rounds": 3,
+    "integer_allocations": [[1, 2, 0, 1], [1, 1, 1, 1], [2, 0, 1, 1]],
+    "nonuniform_rounds": [0, 2]
+  }
+}

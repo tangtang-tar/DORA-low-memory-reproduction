@@ -5,15 +5,13 @@ import json
 from pathlib import Path
 
 import torch
-import yaml
 from transformers import AutoTokenizer, BitsAndBytesConfig
 
 from modeling_qwen2_rm import Qwen2ForProcessRewardModel
+from project_paths import load_config
 
 
-ROOT = Path("/media/tangtang/Data/DORA")
-with (ROOT / "configs/phase_c3.yaml").open(encoding="utf-8") as file:
-    config = yaml.safe_load(file)
+config = load_config("configs/phase_c3.yaml")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--mode", choices=["4bit", "mixed_bf16"], required=True)
@@ -76,4 +74,3 @@ with output_path.open("w", encoding="utf-8") as output:
         }
         output.write(json.dumps(record, ensure_ascii=False) + "\n")
         print(f"{args.mode} {index:02d}/{len(candidates)} {candidate['candidate_id']}: {scores[-1]:.6f}", flush=True)
-

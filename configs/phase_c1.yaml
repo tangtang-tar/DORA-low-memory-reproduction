@@ -1,7 +1,7 @@
 # C1 评测可靠性修复配置。
-model_path: /media/tangtang/Data/DORA/models/Qwen2.5-1.5B-Instruct
-dataset_name: /media/tangtang/Data/DORA/datasets/MATH-500
-output_dir: /media/tangtang/Data/DORA/results/phase_c/c1
+model_path: models/Qwen2.5-1.5B-Instruct
+dataset_name: datasets/MATH-500
+output_dir: results/phase_c/c1
 num_samples: 10
 n: 4
 max_tokens: 512

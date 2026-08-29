@@ -1,0 +1,7 @@
+method,correct,total,accuracy
+self_consistency,2,5,0.4
+uniform_rollout_prm_vote,2,5,0.4
+dora_quality_only,2,5,0.4
+dora_bge_alpha_0.01,2,5,0.4
+dora_bge_alpha_0.1,2,5,0.4
+dora_bge_alpha_1.0,2,5,0.4

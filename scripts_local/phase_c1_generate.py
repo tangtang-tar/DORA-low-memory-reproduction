@@ -5,14 +5,14 @@ import time
 from pathlib import Path
 
 import torch
-import yaml
 from datasets import Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-ROOT = Path("/media/tangtang/Data/DORA")
-with (ROOT / "configs/phase_c1.yaml").open(encoding="utf-8") as file:
-    config = yaml.safe_load(file)
+from project_paths import load_config
+
+
+config = load_config("configs/phase_c1.yaml")
 output_dir = Path(config["output_dir"])
 output_dir.mkdir(parents=True, exist_ok=True)
 

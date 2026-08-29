@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# DORA 项目的唯一根目录。后续环境、模型、数据和缓存均从这里展开。
-export DORA_ROOT=/media/tangtang/Data/DORA
+# 默认以本脚本所在目录为项目根；也可在 source 前显式设置 DORA_ROOT。
+_dora_script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+export DORA_ROOT=${DORA_ROOT:-$_dora_script_dir}
 
 # 将各工具默认写入用户主目录的缓存改到 DORA 目录。
 export CONDA_PKGS_DIRS="$DORA_ROOT/cache/conda_pkgs"
@@ -23,8 +24,16 @@ export TMPDIR="$DORA_ROOT/tmp"
 # 让 Python 能找到官方仓库 scripts/sal 包。
 export PYTHONPATH="$DORA_ROOT/src/scripts${PYTHONPATH:+:$PYTHONPATH}"
 
-# 激活指定路径中的 Conda 环境，不创建用户目录下的命名环境。
-source /home/tangtang/miniconda3/etc/profile.d/conda.sh
-conda activate "$DORA_ROOT/envs/dora"
+# 初始化 Conda shell hook，再激活项目内环境。
+if [[ -n "${CONDA_EXE:-}" ]]; then
+    eval "$("$CONDA_EXE" shell.bash hook)"
+elif command -v conda >/dev/null 2>&1; then
+    eval "$(conda shell.bash hook)"
+else
+    echo "conda is unavailable; initialize Conda or set CONDA_EXE first." >&2
+    return 1
+fi
+conda activate "$DORA_ROOT/envs/dora" || return 1
 
 cd "$DORA_ROOT/src"
+unset _dora_script_dir

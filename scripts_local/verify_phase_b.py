@@ -3,14 +3,12 @@
 import csv
 from pathlib import Path
 
-import yaml
-
 from phase_b_common import read_jsonl
+from project_paths import ROOT, load_config
 
 
-root = Path("/media/tangtang/Data/DORA")
-with (root / "configs/phase_b_dora.yaml").open(encoding="utf-8") as file:
-    config = yaml.safe_load(file)
+root = ROOT
+config = load_config("configs/phase_b_dora.yaml")
 
 for key in ["model_path", "prm_path", "embedding_path", "dataset_name", "output_dir"]:
     assert Path(config[key]).is_relative_to(root), f"{key} 越出 DORA 边界"
